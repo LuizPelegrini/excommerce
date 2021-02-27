@@ -1,16 +1,23 @@
 window.onload = () => {
   let cart = [];
 
+  // Make the body height be full screen height to position loading text at the center
+  $('body').css('height', '100vh');
+
   const $productListEl = $('#product-list');
-  const loadingEl = document.getElementById('loading-text');
-  const modalEl = document.getElementById('modal--item-added-to-cart');
+  const $loadingEl = $('#loading-text');
 
   // as soon as the page is rendered, fetch products from API
   fetch('https://fakestoreapi.com/products')
     .then(res=>res.json())
     .then(json => {
+      // remove "Loading..." text
+      $loadingEl.remove();
+      // remove height from body, as I want it to wrap the whole content once everything is loaded
+      // this prevents issue with the sticky nav bar when scrolling down
+      $('body').css('height', '');
+      // create the list of products
       buildItems(json);
-      loadingEl.style.display = 'none';
     });
 
   function buildItems(data){
@@ -35,8 +42,6 @@ window.onload = () => {
 
       $productListEl.append($liProduct);
     });
-
-    $('.container').removeClass('container--centered');
   }
 
   function addItemToCart(item){

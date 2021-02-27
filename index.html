@@ -14,7 +14,7 @@
   <title>MyCommerce</title>
 </head>
 <body>
-  <div class="container navigation sticky-top">
+  <div class="container-fluid navigation sticky-top">
     <nav class="navbar">
       <a class="navbar-brand" href="#">
         <img src="./assets/logo.svg" width="40" height="40" alt="Logo">
@@ -30,17 +30,22 @@
     </nav>
   </div>
 
-  <div aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="#">Breadcrumb</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Shop</li>
-    </ol>
+  <div id="breadcrumb">
+    <div class="container" aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Breadcrumb</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Shop</li>
+      </ol>
+    </div>
   </div>
 
-  <main class="container container--centered">
+  <main class="container">
     <ul id="product-list"></ul>
-    <div id="loading-text">Loading...</div>
   </main>
+
+  <div id="loading-text" class="remaining-height">
+      Loading...
+  </div>
 
   <!-- Modal -->
   <div id="modal--item-added-to-cart" class="modal fade" tabindex="-1">

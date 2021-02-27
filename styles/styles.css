@@ -4,6 +4,7 @@
   --exness-black: #000000;
   --exness-gray: #26292D;
   --light-gray: #cccccc;
+  --breadcrumb: #ddd;
 }
 
 html {
@@ -13,13 +14,12 @@ html {
 body{
   display: flex;
   flex-direction: column;
-  /* height: 100vh; */
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   background: var(--exness-light-gray);
 }
 
-.container.navigation{
+.container-fluid.navigation{
   background: var(--exness-black);
   flex: 0; /* avoid navigation bar to expand when the content is not fully fetched */
 }
@@ -40,6 +40,15 @@ nav .nav-item + .nav-item {
   margin-left: 10px;
 }
 
+#breadcrumb {
+  background: var(--breadcrumb);
+}
+
+#breadcrumb ol{
+  margin-bottom: 0;
+  background: inherit;
+}
+
 .breadcrumb-item a{
   color: var(--exness-gray);
 }
@@ -53,14 +62,14 @@ nav .nav-item + .nav-item {
   content: '>';
 }
 
-.container{
-  flex: 1;
-}
-
-.container--centered{
+#loading-text{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.remaining-height{
+  flex: 1; /* the main content where should occupy all the remaining height*/
 }
 
 #product-list{
