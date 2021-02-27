@@ -128,8 +128,9 @@ nav .nav-item + .nav-item {
 
 footer {
   background: var(--exness-gray);
-  padding: 40px 0;
+  padding: 20px 0;
   text-align: center;
+  margin-top: 20px;
 }
 
 footer a + a {
@@ -137,7 +138,7 @@ footer a + a {
 }
 
 footer img{
-  width: 25px;
+  width: 20px;
 }
 
 /*****  MODAL Styles *****/
@@ -202,6 +203,14 @@ footer img{
     width: 150px;
     margin: 28px 11px;
   }
+
+  footer {
+    padding: 30px 0;
+  }
+
+  footer img{
+    width: 30px;
+  }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
@@ -213,5 +222,9 @@ footer img{
   .product {
     width: 190px;
     margin: 30px 16px;
+  }
+
+  footer img{
+    width: 20px;
   }
 }

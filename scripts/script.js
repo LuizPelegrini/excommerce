@@ -4,17 +4,34 @@ window.onload = () => {
   const $productListEl = $('#product-list');
   const $loadingEl = $('#loading-text');
 
+  // METHOD A:
   // as soon as the page is rendered, fetch products from API
-  fetch('https://fakestoreapi.com/products')
-    .then(res=>res.json())
-    .then(json => {
+  // fetch('https://fakestoreapi.com/products')
+  //   .then(res => res.json())
+  //   .then(json => {
+  //     // remove "Loading..." text
+  //     $loadingEl.remove();
+  //     // remove height from body. This avoids the issue with the sticky nav bar disappearing when scrolling down
+  //     $('body').css('height', 'unset');
+  //     // create the list of products
+  //     buildItems(json);
+  //   });
+
+  // METHOD B:
+  // As the JD specifies XML as requirement. Here's another way to fetch data using AJAX
+  const xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
       // remove "Loading..." text
       $loadingEl.remove();
       // remove height from body. This avoids the issue with the sticky nav bar disappearing when scrolling down
       $('body').css('height', 'unset');
-      // create the list of products
-      buildItems(json);
-    });
+      // start creating the DOM with the returned result
+      buildItems(JSON.parse(xhr.responseText));
+    }
+  };
+  xhr.open('GET', 'https://fakestoreapi.com/products', true);
+  xhr.send();
 
   function buildItems(data){
     /* TEMPLATE
@@ -48,7 +65,8 @@ window.onload = () => {
     $('.modal-body .modal--item-pricing').text(formatPrice(item.price));
     $('#modal--item-added-to-cart').modal('show');
 
-    console.log(cart);
+    console.log(`Item ${item.title} added to cart!`);
+    console.log('Items in the cart: ', cart);
   }
 };
 
