@@ -1,3 +1,11 @@
+:root{
+  --exness-yellow: #ffcf01;
+  --exness-light-gray: #e9e9e9;
+  --exness-black: #000000;
+  --exness-gray: #26292D;
+  --light-gray: #cccccc;
+}
+
 html {
   font-size: 62.5%; /* 1rem = 10px. This allows me to control the font size by percentage */
 }
@@ -5,9 +13,19 @@ html {
 body{
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  /* height: 100vh; */
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
+  background: var(--exness-light-gray);
+}
+
+.container.navigation{
+  background: var(--exness-black);
+  flex: 0; /* avoid navigation bar to expand when the content is not fully fetched */
+}
+
+nav .nav-link{
+  color: var(--exness-light-gray);
 }
 
 nav ul {
@@ -20,6 +38,19 @@ nav .nav-item{
 
 nav .nav-item + .nav-item {
   margin-left: 10px;
+}
+
+.breadcrumb-item a{
+  color: var(--exness-gray);
+}
+
+.breadcrumb-item a:focus,
+.breadcrumb-item a:hover{
+  text-decoration: none;
+}
+
+.breadcrumb-item + .breadcrumb-item::before{
+  content: '>';
 }
 
 .container{
@@ -43,8 +74,10 @@ nav .nav-item + .nav-item {
 .product {
   width: 145px;
   padding: 10px;
-  box-shadow: 0 2px 8px #ccc;
-  margin: 24px 10px;
+  box-shadow: 4px 2px 6px var(--light-gray);
+  margin: 12px 10px;
+  background: var(--white);
+  border-radius: 6px;
 }
 
 .product img {
@@ -57,6 +90,7 @@ nav .nav-item + .nav-item {
   display: block;
   white-space: nowrap;
   overflow: hidden;
+  text-overflow: ellipsis;
   font-size: 1rem;
 }
 
@@ -78,6 +112,8 @@ nav .nav-item + .nav-item {
   height: 35px;
   text-transform: uppercase;
   margin-top: 8px;
+  background: var(--exness-yellow);
+  color: var(--exness-gray);
 }
 
 /*****  MODAL Styles *****/

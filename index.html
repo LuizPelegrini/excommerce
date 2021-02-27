@@ -14,23 +14,33 @@
   <title>MyCommerce</title>
 </head>
 <body>
-  <nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand" href="#">
-      <img src="./assets/logo.svg" width="40" height="40" alt="Logo">
-    </a>
-    <ul class="navbar-nav flex-row">
-      <li class="nav-item">
-        <a class="nav-link" href="#">Cart</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Login/Register</a>
-      </li>
-    </ul>
-  </nav>
-  <div class="container container--centered">
+  <div class="container navigation sticky-top">
+    <nav class="navbar">
+      <a class="navbar-brand" href="#">
+        <img src="./assets/logo.svg" width="40" height="40" alt="Logo">
+      </a>
+      <ul class="navbar-nav flex-row">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Cart</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Login/Register</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <div aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">Breadcrumb</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Shop</li>
+    </ol>
+  </div>
+
+  <main class="container container--centered">
     <ul id="product-list"></ul>
     <div id="loading-text">Loading...</div>
-  </div>
+  </main>
 
   <!-- Modal -->
   <div id="modal--item-added-to-cart" class="modal fade" tabindex="-1">

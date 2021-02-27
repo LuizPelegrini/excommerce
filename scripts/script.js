@@ -28,7 +28,7 @@ window.onload = () => {
         .append($('<span></span>').addClass('product--category').append(item.category))
         .append($('<span></span>').addClass('product--title').append(item.title))
         .append($('<span></span>').append(item.description))
-        .append($('<button></button>').attr({ type: 'button'}).addClass('btn btn-primary').append('Add Cart')).click(evt => {
+        .append($('<button></button>').attr({ type: 'button'}).addClass('btn').append('Add Cart')).click(evt => {
           evt.preventDefault();
           addItemToCart(item);
         });
