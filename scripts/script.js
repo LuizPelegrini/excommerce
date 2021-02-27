@@ -1,9 +1,6 @@
 window.onload = () => {
   let cart = [];
 
-  // Make the body height be full screen height to position loading text at the center
-  $('body').css('height', '100vh');
-
   const $productListEl = $('#product-list');
   const $loadingEl = $('#loading-text');
 
@@ -13,9 +10,8 @@ window.onload = () => {
     .then(json => {
       // remove "Loading..." text
       $loadingEl.remove();
-      // remove height from body, as I want it to wrap the whole content once everything is loaded
-      // this prevents issue with the sticky nav bar when scrolling down
-      $('body').css('height', '');
+      // remove height from body. This avoids the issue with the sticky nav bar disappearing when scrolling down
+      $('body').css('height', 'unset');
       // create the list of products
       buildItems(json);
     });
@@ -47,7 +43,6 @@ window.onload = () => {
   function addItemToCart(item){
     cart.push(item);
 
-    // modal--item-added-to-cart
     $('.modal-body img').attr({src: item.image});
     $('.modal-body .modal--item-title').text(item.title);
     $('.modal-body .modal--item-pricing').text(formatPrice(item.price));
