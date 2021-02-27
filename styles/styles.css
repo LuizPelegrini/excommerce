@@ -126,6 +126,20 @@ nav .nav-item + .nav-item {
   color: var(--exness-gray);
 }
 
+footer {
+  background: var(--exness-gray);
+  padding: 40px 0;
+  text-align: center;
+}
+
+footer a + a {
+  margin-left: 30px;
+}
+
+footer img{
+  width: 25px;
+}
+
 /*****  MODAL Styles *****/
 
 #modal--item-added-to-cart .modal-title{
